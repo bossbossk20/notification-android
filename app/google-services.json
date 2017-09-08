@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "525179067915",
+    "firebase_url": "https://notification-mobile-28e0c.firebaseio.com",
+    "project_id": "notification-mobile-28e0c",
+    "storage_bucket": "notification-mobile-28e0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525179067915:android:dd32c46970356e4a",
+        "android_client_info": {
+          "package_name": "asia.sendit.Testnoti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525179067915-mtfc465h2id9sopqcvs5553sjo39e59p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfdV9R9xz2qghiZJHGZCj2Ah1kSZCAvHs"
+        },
+        {
+          "current_key": "AIzaSyCP5saoEk0elts1Jlglxvbc9RHKxd2CUGo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
