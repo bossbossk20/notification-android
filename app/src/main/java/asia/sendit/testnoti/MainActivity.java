@@ -1,5 +1,6 @@
 package asia.sendit.testnoti;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.subscribeButton).setOnClickListener(this);
         findViewById(R.id.unsubscribeButton).setOnClickListener(this);
         findViewById(R.id.logTokenButton).setOnClickListener(this);
+        findViewById(R.id.imgGo).setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "Token : " + token);
                 Toast.makeText(MainActivity.this, "Token : " + token, Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.imgGo:
+                Intent goPage = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(goPage);
         }
     }
 }
