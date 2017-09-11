@@ -45,7 +45,7 @@
             android:text='login token' />
 
         <ImageView
-            android:id="@+id/imgGo"
+            android:id="@+id/notify_me"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@mipmap/ic_launcher_round" />

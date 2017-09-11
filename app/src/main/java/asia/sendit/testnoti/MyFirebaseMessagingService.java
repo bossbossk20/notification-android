@@ -20,17 +20,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "Message";
     private static Handler handler = new Handler();
-
+    public static String messageText = "";
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         final String text = remoteMessage.getData().get("txt");
         final String box = remoteMessage.getData().get("box");
+        messageText = text;
         Log.d("noti", text+"");
         sendNotification(text, box);
         handler.post(new Runnable() {
             @Override
             public void run() {
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                startService(new Intent(MyFirebaseMessagingService.this, FloatingViewService.class));
             }
         });
     }
