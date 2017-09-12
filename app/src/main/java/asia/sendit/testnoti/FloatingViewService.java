@@ -3,6 +3,7 @@ package asia.sendit.testnoti;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Handler;
 import android.os.IBinder;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -17,7 +19,7 @@ public class FloatingViewService extends Service {
 
     private WindowManager mWindowManager;
     private View mFloatingView;
-
+    private static Handler handler = new Handler();
     public FloatingViewService() {
     }
 
@@ -118,9 +120,6 @@ public class FloatingViewService extends Service {
                         //So that is click event.
                         if (Xdiff < 10 && Ydiff < 10) {
                             if (isViewCollapsed()) {
-                                //When user clicks on the image view of the collapsed layout,
-                                //visibility of the collapsed layout will be changed to "View.GONE"
-                                //and expanded view will become visible.
                                 collapsedView.setVisibility(View.GONE);
                                 expandedView.setVisibility(View.VISIBLE);
                             }
@@ -138,6 +137,25 @@ public class FloatingViewService extends Service {
                 return false;
             }
         });
+    }
+
+    @Override
+    public int onStartCommand(final Intent intent, int flags, int startId) {
+        super.onStartCommand(intent, flags, startId);
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                if( intent != null ){
+                    Toast.makeText(getApplicationContext(), intent.getStringExtra("txt")+"", Toast.LENGTH_SHORT).show();
+                    TextView drawOverText = (TextView) mFloatingView.findViewById(R.id.drawOverId);
+                    drawOverText.setText(intent.getStringExtra("txt")+"");
+                }else{
+                    Toast.makeText(getApplicationContext(), "Some thing error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        return START_STICKY;
     }
 
     /**

@@ -31,8 +31,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-                startService(new Intent(MyFirebaseMessagingService.this, FloatingViewService.class));
+                //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                //startService(new Intent(MyFirebaseMessagingService.this, FloatingViewService.class));
+
+                Intent intent = new Intent(getApplicationContext(), FloatingViewService.class);
+                intent.putExtra("txt", text);
+                startService(intent);
             }
         });
     }

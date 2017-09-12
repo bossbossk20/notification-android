@@ -22,6 +22,7 @@
             android:visibility="visible">
 
             <!--Icon of floating widget -->
+
             <ImageView
                 android:id="@+id/collapsed_iv"
                 android:layout_width="60dp"
@@ -32,6 +33,7 @@
                 tools:ignore="ContentDescription" />
 
             <!--Close button-->
+
             <ImageView
                 android:id="@+id/close_btn"
                 android:layout_width="20dp"
@@ -86,7 +88,7 @@
                 <!--tools:ignore="ContentDescription" />-->
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/drawOverId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
