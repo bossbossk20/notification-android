@@ -14,12 +14,14 @@
         tools:ignore="UselessParent">
 
         <!--View while view is collapsed-->
-        <RelativeLayout
-            android:id="@+id/collapse_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible">
+            <LinearLayout
+                android:id="@+id/collapse_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#F8BBD0"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:visibility="visible">
 
             <!--Icon of floating widget -->
 
@@ -34,85 +36,37 @@
 
             <!--Close button-->
 
-            <ImageView
-                android:id="@+id/close_btn"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="40dp"
-                android:src="@android:drawable/btn_dialog"
-                tools:ignore="ContentDescription" />
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/drawOverId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:padding="20dp"
+                    android:text="TextView" />
 
-        <!--View while view is expanded-->
-        <LinearLayout
-            android:id="@+id/expanded_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#F8BBD0"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:visibility="gone">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-            <!--Album image for the song currently playing.-->
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/sendit"
-                tools:ignore="ContentDescription" />
-            <!---->
-            <!--&lt;!&ndash;Previous button&ndash;&gt;-->
-            <!--<ImageView-->
-                <!--android:id="@+id/prev_btn"-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--tools:ignore="ContentDescription" />-->
+                    <ImageView
+                        android:id="@+id/close_btn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/btn_dialog"
+                        tools:ignore="ContentDescription" />
 
-            <!--&lt;!&ndash;Play button&ndash;&gt;-->
-            <!--<ImageView-->
-                <!--android:id="@+id/play_btn"-->
-                <!--android:layout_width="50dp"-->
-                <!--android:layout_height="50dp"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--tools:ignore="ContentDescription" />-->
+                    <ImageButton
+                        android:id="@+id/gotoApp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_menu_set_as"
+                        android:layout_gravity="bottom" />
+                </FrameLayout>
 
-            <!--&lt;!&ndash;Next button&ndash;&gt;-->
-            <!--<ImageView-->
-                <!--android:id="@+id/next_btn"-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--tools:ignore="ContentDescription" />-->
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/drawOverId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hello World" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/close_button"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@android:drawable/btn_dialog"/>
-
-                <ImageView
-                    android:id="@+id/open_button"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:src="@android:drawable/ic_menu_help" />
-            </RelativeLayout>
-        </LinearLayout>
     </RelativeLayout>
 
 </FrameLayout>
