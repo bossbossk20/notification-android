@@ -18,7 +18,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-    private static final String TAG = "Message";
+    private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
     private static Handler handler = new Handler();
     public static String messageText = "";
     @Override
@@ -26,19 +26,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         final String text = remoteMessage.getData().get("txt");
         final String box = remoteMessage.getData().get("box");
         messageText = text;
-        Log.d("noti", text+"");
+        Log.d(TAG, text+"");
         sendNotification(text, box);
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-                //startService(new Intent(MyFirebaseMessagingService.this, FloatingViewService.class));
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                //Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+//                //startService(new Intent(MyFirebaseMessagingService.this, FloatingViewService.class));
+//
+//                Intent intent = new Intent(getApplicationContext(), FloatingViewService.class);
+//                intent.putExtra("txt", text);
+//                startService(intent);
+//            }
+//        });
 
-                Intent intent = new Intent(getApplicationContext(), FloatingViewService.class);
-                intent.putExtra("txt", text);
-                startService(intent);
-            }
-        });
+        Intent intent = new Intent(getApplicationContext(), FloatingViewService.class);
+        intent.putExtra("txt", text);
+        startService(intent);
     }
     private void sendNotification(String txt, String box) {
         Intent intent = new Intent(this, MainActivity.class);
