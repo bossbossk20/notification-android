@@ -210,12 +210,16 @@ public class FloatingViewService extends Service {
             // For our sample, we just sleep for 5 seconds.
 
             Log.d(TAG, "handleMessage start listener");
+            if( mFloatingView != null ){
+                mFloatingView.setVisibility(View.GONE);
+            }
             mFloatingView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.activity_drawing, null);
             Intent intent = (Intent) msg.obj;
             if( intent != null ){
                 Toast.makeText(getApplicationContext(), intent.getStringExtra("txt")+"", Toast.LENGTH_SHORT).show();
                 TextView drawOverText = (TextView) mFloatingView.findViewById(R.id.drawOverId);
                 drawOverText.setText(intent.getStringExtra("txt")+"");
+
             }else{
                 Toast.makeText(getApplicationContext(), "Some thing error", Toast.LENGTH_SHORT).show();
             }
@@ -249,7 +253,7 @@ public class FloatingViewService extends Service {
                 @Override
                 public void onClick(View view) {
                     //close the service and remove the from from the window
-                    stopSelf();
+                    mFloatingView.setVisibility(View.GONE);
                 }
             });
 
